@@ -54,7 +54,7 @@ public class LoggingAspect {
     // - Mark this method as an around advice.
 	// - Write a pointcut expression to match on all update* methods
 	//	 on all Repository classes.
-	@Around("execution(* *Repository.update*(..))")
+	@Around("execution(* *..*Repository.update*(..))")
 	public Object monitor(ProceedingJoinPoint repositoryMethod) throws Throwable {
 		String name = createJoinPointTraceName(repositoryMethod);
 		Monitor monitor = monitorFactory.start(name);
